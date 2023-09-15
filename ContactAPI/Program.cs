@@ -87,6 +87,9 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 //Register services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddTransient<IMailService, MailService>();
+
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -97,6 +100,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -105,6 +110,7 @@ app.UseAuthorization();
 IConfiguration configuration = app.Configuration;
 IWebHostEnvironment environment = app.Environment;
 
+app.MapRazorPages();
 app.MapControllers();
 
 app.Run();

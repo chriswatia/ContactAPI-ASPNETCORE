@@ -11,7 +11,7 @@ namespace ContactsAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class ContactsController : ControllerBase
     {
 

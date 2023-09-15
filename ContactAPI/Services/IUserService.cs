@@ -7,5 +7,8 @@ namespace ContactsAPI.Services
     {
         Task<UserManagerResponse> RegisterUserAsync(RegisterDto request);
         Task<UserManagerResponse> LoginUserAsync(LoginDto request);
+        Task<UserManagerResponse> ConfirmEmailAsync(string userId, string token);
+        Task<UserManagerResponse> ForgetPasswordAsync(string email);
+        Task<UserManagerResponse> ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
     }    
 }
